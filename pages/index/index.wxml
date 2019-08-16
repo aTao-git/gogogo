@@ -1,2 +1,33 @@
 <!--index.wxml-->
-<view>首页</view>
+<view>
+  <view class="search">
+    <view class="searchinput">
+      <icon type="search" size="16"></icon>搜索
+    </view>
+  </view>
+  <swiper indicator-dots indicator-color="rgba(255,255,255,.3)" indicator-active-color="#fff" autoplay="true" interval="3000" duration="500" circular>
+    <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+      <swiper-item>
+        <image src="{{item.image_src}}" class="slide-image" mode="aspectFill" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="menus">
+    <view class="menu-item" wx:for="{{menuImg}}" wx:key="{{index}}">
+      <image src="{{item.image_src}}" mode="aspectFill"></image>
+    </view>
+  </view>
+  <view class="floor" wx:for="{{contentImg}}" wx:key="{{index}}">
+    <view class="title">
+      <image src="{{item.floor_title.image_src}}" mode="aspectFill"></image>
+    </view>
+    <view class="content">
+      <view class="content-left"> 
+        <image src="{{item.product_list[0].image_src}}" mode="aspectFill"></image>
+      </view>
+      <view class="content-right">
+        <image wx:for="{{item.product_list}}" wx:key="{{index}}" wx:if="{{index > 0}}" src="{{item.image_src}}" mode="scaleToFill"></image>
+      </view>
+    </view>
+  </view>
+</view>
