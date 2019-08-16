@@ -1,8 +1,18 @@
+.container {
+  padding-top: 100rpx;
+}
 .search {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  width: 100%;
+  box-sizing: border-box;
   padding: 20rpx;
   background: #ff2d4a;
 }
 .searchinput {
+  height: 60rpx;
   background: #fff;
   display: flex;
   justify-content: center;

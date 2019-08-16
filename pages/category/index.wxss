@@ -1,1 +1,109 @@
-/* pages/category/index.wxss */
+.container {
+  position: absolute;
+  top: 100rpx;
+  bottom: 0;
+  width: 100%;
+}
+
+.search {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20rpx;
+  background: #ff2d4a;
+}
+
+.searchinput {
+  height: 60rpx;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 14px;
+  color: #b2b2b2;
+  border-radius: 4px;
+}
+
+.searchinput icon {
+  margin-right: 20rpx;
+}
+
+.content {
+  position: relative;
+  height: 100%;
+  display: flex;
+}
+
+.content .menu {
+  position: absolute;
+  height: 100%;
+  overflow: scroll;
+  background: #f5f5f5;
+}
+
+.content .active {
+  color: #ff2d4a;
+  background: #fff;
+  position: relative;
+}
+
+.content .menu-item {
+  height: 100rpx;
+  line-height: 100rpx;
+  width: 200rpx;
+  text-align: center;
+  box-sizing: border-box;
+  border-bottom: 1px solid #efefef;
+  font-size: 30rpx;
+}
+
+.content .active::before {
+  display: block;
+  content: '';
+  width: 4px;
+  height: 60rpx;
+  background: #ff2d4a;
+  position: absolute;
+  top: 20rpx;
+  left: 0;
+}
+.category {
+  position: absolute;
+  left: 200rpx;
+  height: 100%;
+  overflow: scroll;
+  right: 0;
+  flex: 1;
+}
+.category-title {
+  margin-top: 30rpx;
+  text-align: center;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+.category-title text {
+  color: #ccc;
+  margin: 0 30rpx;
+}
+.category-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.category .category-item {
+  width: 33.3%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.category .category-item .category-item-title image {
+  width: 120rpx;
+  height: 120rpx;
+}
+.category .category-item .category-item-text {
+  font-size: 13px;
+  color: #666;
+}

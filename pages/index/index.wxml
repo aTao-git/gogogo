@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view>
+<view class="container">
   <view class="search">
     <view class="searchinput">
       <icon type="search" size="16"></icon>搜索
