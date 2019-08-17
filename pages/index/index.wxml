@@ -1,10 +1,6 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="search">
-    <view class="searchinput">
-      <icon type="search" size="16"></icon>搜索
-    </view>
-  </view>
+  <search />
   <swiper indicator-dots indicator-color="rgba(255,255,255,.3)" indicator-active-color="#fff" autoplay="true" interval="3000" duration="500" circular>
     <block wx:for="{{imgUrls}}" wx:key="{{index}}">
       <swiper-item>

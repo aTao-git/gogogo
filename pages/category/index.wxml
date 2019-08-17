@@ -1,10 +1,6 @@
 <!--pages/category/index.wxml-->
 <view class="container">
-  <view class="search">
-    <view class="searchinput">
-      <icon type="search" size="16"></icon>搜索
-    </view>
-  </view>
+  <search />
   <view class="content">
     <view class="menu">
       <view class="menu-item {{index === current ? 'active' : ''}}" wx:for="{{menuitem}}" wx:key="{{index}}" bindtap="handlechangetab" data-index="{{index}}">
@@ -18,14 +14,14 @@
           <text>/</text>
         </view>
         <view class="category-list">
-          <view class="category-item" wx:for="{{item.children}}" wx:key="{{index}}">
+          <navigator url="/pages/search_list/index?query={{item.cat_name}}" class="category-item" wx:for="{{item.children}}" wx:key="{{index}}">
             <view class="category-item-title">
               <image src="{{item.cat_icon}}"></image>
             </view>
             <view class="category-item-text">
               {{item.cat_name}}
             </view>
-          </view>
+          </navigator>
         </view>
       </view>
     </view>

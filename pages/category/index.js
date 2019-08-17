@@ -12,12 +12,14 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad () {
-    Request ({
+  onLoad() {
+    Request({
       url: '/categories'
     }).then(res => {
       console.log(res)
-      const { message } = res.data
+      const {
+        message
+      } = res.data
       this.setData({
         menuitem: message
       })
@@ -25,8 +27,10 @@ Page({
       console.log(err)
     })
   },
-  handlechangetab (e) {
-    const { index } = e.currentTarget.dataset
+  handlechangetab(e) {
+    const {
+      index
+    } = e.currentTarget.dataset
     this.setData({
       current: index
     })

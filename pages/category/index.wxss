@@ -5,33 +5,6 @@
   width: 100%;
 }
 
-.search {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 99;
-  width: 100%;
-  box-sizing: border-box;
-  padding: 20rpx;
-  background: #ff2d4a;
-}
-
-.searchinput {
-  height: 60rpx;
-  background: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-size: 14px;
-  color: #b2b2b2;
-  border-radius: 4px;
-}
-
-.searchinput icon {
-  margin-right: 20rpx;
-}
-
 .content {
   position: relative;
   height: 100%;

@@ -1,0 +1,30 @@
+<!--pages/search_list/index.wxml-->
+<view class="container">
+  <view class="search">
+    <view class="search-input">
+      <icon type="search" size="16"></icon>{{keyword}}
+    </view>
+  </view>
+  <view class="tab">
+    <view class="tab-item {{current === index ? 'active' : ''}}" wx:for="{{['综合','销量','价格']}}" wx:key="{{index}}" bindtap="handlechangetab" data-index="{{index}}">
+      <view>{{item}}</view>
+    </view>
+  </view>
+  <view class="goods" wx:for="{{goods}}" wx:key="{{index}}">
+    <image src="{{item.goods_small_logo}}"></image>
+    <view class="goods-cnt">
+      <view class="cnt-title">
+      {{item.goods_name}}
+      </view>
+      <view class="cnt-price">
+        <text>￥</text><text class="cnt-main-price">{{item.goods_price}}.</text><text>00</text>
+      </view>
+    </view>
+  </view>
+  <view class="bottomtext" wx:if="{{ goods.length === total }}">
+    <text>已经加载到底了~</text>
+  </view>
+  <view wx:else class="bottomtext">
+    <text>正在加载更多...</text>
+  </view>
+</view>
