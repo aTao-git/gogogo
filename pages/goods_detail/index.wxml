@@ -1,0 +1,39 @@
+<!--pages/goods_detail/index.wxml-->
+<view class="container">
+  <view class="goods_swiper">
+    <swiper indicator-dots="true" duration="500" class="swiper" style="height:{{Height}}" indicator-color="rgba(255,255,255,.3)" indicator-active-color="#fff">
+      <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+        <swiper-item style="height: 500rpx">
+          <image src="{{item.pics_big}}" class="slide-image" mode="widthFix" bindload='imgHeight' />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class="cnt-price">￥{{message.goods_price}}</view>
+
+  <view class="content">
+    <view class="content-left">
+      <view class="cnt-title">{{message.goods_name}}</view>
+    </view>
+    <view class="content-right">
+      <view class="iconfont iconduomeitiicon-"></view>
+      <view>收藏</view>
+    </view>
+  </view>
+  <view class="zto">快递：免运费</view>
+  <rich-text class="richtext" nodes="{{message.goods_introduce}}">
+  </rich-text>
+  <view class="tabbar">
+      <button class="tabbtn" open-type="contact"></button>
+      <view class="tab-left">
+        <view class="iconfont iconwebicon302"></view>
+        <view>联系客服</view>  
+      </view>
+      <view class="tab-left">
+        <view class="iconfont icongouwuche"></view>
+        <view>购物车</view>
+      </view>
+      <navigator url="/pages/cart/index" open-type="switchTab" class="tab-right">加入购物车</navigator>
+      <view class="tab-right">立即购买</view>
+  </view>
+</view>

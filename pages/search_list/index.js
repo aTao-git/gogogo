@@ -7,7 +7,7 @@ Page({
     goods: [],
     pagenum: 1,
     pagesize: 15,
-    total: 0
+    hasmore: true
   },
   showData () {
     const { keyword, pagenum, pagesize } = this.data
@@ -19,10 +19,14 @@ Page({
         pagesize
       }
     }).then(res => {
-      const { goods ,total } = res.data.message
+      const { goods } = res.data.message
+      if (goods.length < this.data.pagesize) {
+        this.setData({
+          hasmore: false
+        })
+      }
       this.setData({
         goods: [...this.data.goods,...goods],
-        total
       })
       console.log(res)
     }).catch(err => {
@@ -48,7 +52,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom () {
-    if (this.data.goods.length === this.data.total) {
+    if (!this.data.hasmore) {
       return
     }
     this.setData({

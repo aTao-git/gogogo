@@ -1,0 +1,92 @@
+/* pages/goods_detail/index.wxss */
+
+.goods_swiper .slide-image {
+  width: 750rpx;
+}
+
+.cnt-price {
+  color: #ff2d4a;
+  font-size: 20px;
+  padding: 20rpx;
+}
+
+.content {
+  display: flex;
+  padding: 10rpx 20rpx;
+}
+
+.content-left {
+  width: 80%;
+}
+
+.cnt-title {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  padding-right: 60rpx;
+  font-size: 16px;
+}
+
+.content-right {
+  border-left: 1px solid #ccc;
+  padding-left: 50rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+  color: #ccc;
+  line-height: 1.5;
+}
+
+.zto {
+  padding: 0 20rpx;
+  font-size: 12px;
+  color: #ccc;
+  margin-bottom: 40rpx;
+}
+
+.tabbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  display: flex;
+  width: 100%;
+  height: 100rpx;
+  background: #fff;
+}
+
+.tab-left {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  color: #666;
+}
+
+.tab-right {
+  width: 30%;
+  text-align: center;
+  height: 100rpx;
+  line-height: 100rpx;
+  background: #ffb415;
+  font-size: 13px;
+  color: #fff;
+}
+
+.tab-right:last-child {
+  background: #ff2b49;
+}
+
+.tabbtn {
+  position: absolute;
+  width: 20%;
+  height: 100rpx;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  opacity: 0;
+}

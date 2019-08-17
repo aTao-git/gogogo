@@ -10,21 +10,20 @@
       <view>{{item}}</view>
     </view>
   </view>
-  <view class="goods" wx:for="{{goods}}" wx:key="{{index}}">
+  <navigator url="/pages/goods_detail/index?goods_id={{item.goods_id}}" class="goods" wx:for="{{goods}}" wx:key="{{index}}">
     <image src="{{item.goods_small_logo}}"></image>
     <view class="goods-cnt">
       <view class="cnt-title">
-      {{item.goods_name}}
+        {{item.goods_name}}
       </view>
       <view class="cnt-price">
-        <text>￥</text><text class="cnt-main-price">{{item.goods_price}}.</text><text>00</text>
+        <text>￥</text>
+        <text class="cnt-main-price">{{item.goods_price}}.</text>
+        <text>00</text>
       </view>
     </view>
-  </view>
-  <view class="bottomtext" wx:if="{{ goods.length === total }}">
-    <text>已经加载到底了~</text>
-  </view>
-  <view wx:else class="bottomtext">
-    <text>正在加载更多...</text>
+  </navigator>
+  <view class="bottomtext">
+    <text>{{hasmore ? '正在加载更多...' : '已经到底部了~ '}}</text>
   </view>
 </view>
