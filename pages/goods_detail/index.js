@@ -15,7 +15,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
     const { goods_id } = options
     Request({
       url: `/goods/detail?goods_id=${goods_id}`
@@ -30,7 +29,14 @@ Page({
       console.log(err)
     })
   },
-  imgHeight: function (e) {
+  imgHeight:function (e) {
+    // if (this.data.imgUrls.length === 0) {
+    //   return
+    // }
+    if (this.data.Height) {
+      return
+    }
+    console.log(e)
     var winWid = wx.getSystemInfoSync().windowWidth; //获取当前屏幕的宽度
     var imgh = e.detail.height;//图片高度
     var imgw = e.detail.width;//图片宽度
@@ -43,10 +49,6 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-
-  },
-
   /**
    * 生命周期函数--监听页面显示
    */
