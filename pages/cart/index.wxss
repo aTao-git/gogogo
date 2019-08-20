@@ -1,1 +1,159 @@
 /* pages/cart/index.wxss */
+
+Page, .content {
+  height: 100%;
+  background: #f4f4f4;
+}
+
+.container {
+  padding: 40rpx 20rpx;
+  font-size: 16px;
+  background: #fff;
+}
+
+.address {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40rpx;
+}
+
+.address-mobile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.address-mobile .iconfont {
+  margin-left: 50rpx;
+}
+
+.img {
+  width: 750rpx;
+  display: block;
+}
+
+.goods .goodstitle {
+  padding: 20rpx;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  background: #fff;
+  margin-top: 20rpx;
+  margin-bottom: 5rpx;
+}
+
+.goods .goodstitle .iconfont {
+  margin: 0 20rpx;
+}
+
+.goods-item {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 20rpx 0 0 0;
+}
+
+.goods-item .item-left {
+  padding: 0 20rpx;
+}
+
+.goods-item .item-right {
+  display: flex;
+  padding-bottom: 20rpx;
+  border-bottom: 2px solid #eee;
+  box-sizing: border-box;
+}
+
+.goods-item .item-right:last-child {
+  border: none;
+}
+
+.goods-item .item-right .item-cnt {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 20rpx;
+}
+
+.goods-item .item-cnt .item-cnt-title {
+  font-size: 16px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.item-right .item-img {
+  display: block;
+  width: 170rpx;
+  height: 170rpx;
+  flex-shrink: 0;
+}
+
+.goods-item .item-cnt-price {
+  display: flex;
+  justify-content: space-between;
+}
+
+.goods-item .item-cnt-price .price {
+  color: #ff2d4a;
+}
+
+.goods-item .item-cnt-price .num {
+  width: 200rpx;
+  height: 50rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.num-border {
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+  border: 1px solid #999;
+  padding: 0 20rpx;
+}
+
+.account {
+  position: fixed;
+  width: 100%;
+  height: 100rpx;
+  background: #fff;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.account .account-left {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+
+.account .account-left icon {
+  margin: 0 20rpx;
+}
+.account .middle {
+  font-size: 16px;
+}
+.account .middle .price {
+  color: #ff2d4a;
+}
+
+.account .middle .freight {
+  color: #bcbcbc;
+  font-size: 12px;
+}
+.account .givemoney {
+  width: 200rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  background: #eb4450;
+  color: #fbe6e8;
+  font-size: 15px;
+}

@@ -1,2 +1,54 @@
 <!--pages/cart/index.wxml-->
-<text>pages/cart/index.wxml</text>
+<view class="content">
+  <view class="container">
+    <view class="address">
+      <view class="address-title">收货人：小小苏</view>
+      <view class="address-mobile">
+        <view>13060637770</view>
+        <view class="iconfont iconjiantou"></view>
+      </view>
+    </view>
+    <view class="address-info">
+      收货地址：广东省广州市天河区珠吉路
+    </view>
+  </view>
+  <image class="img" mode="widthFix" src="../../images/cart_border@2x.png"></image>
+  <view class="goods">
+    <view class="goodstitle">
+      <view class="iconfont icondianpu"></view>
+      <view>并夕夕生活馆</view>
+    </view>
+    <view class="goods-item">
+      <view class="item-left">
+        <icon type="success" color="red" size="16"></icon>
+      </view>
+      <view class="item-right">
+        <image class="item-img" src="https://api.zbztb.cn/pyg/pic_floor01_2@2x.png"></image>
+        <view class="item-cnt">
+          <view class="item-cnt-title">人间不值得人间不值得人间不值得人间不值得人间不值得人间不值得人间不值得人间不值得人间不值得人间不值得</view>
+          <view class="item-cnt-price">
+            <view class="price">￥279.00</view>
+            <view class="num">
+              <view class="num-border">-</view>
+              <view class="number">3</view>
+              <view class="num-border">+</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="account">
+    <view class="account-left">
+      <icon type="success" color="red" size="16"></icon>
+      <view class="checkall">全选</view>
+    </view>
+    <view class="middle">合计：
+      <text class="price">￥14110.00</text>
+      <view class="freight">包含运费</view>
+    </view>
+    <view class="givemoney">
+      结算
+    </view>
+  </view>
+</view>
