@@ -1,16 +1,18 @@
 <!--pages/cart/index.wxml-->
 <view class="content">
-  <view class="container">
+  <view wx:if="{{address.userName}}" class="container">
     <view class="address">
-      <view class="address-title">收货人：小小苏</view>
+      <view class="address-title">收货人：{{address.userName}}</view>
       <view class="address-mobile">
-        <view>13060637770</view>
-        <view class="iconfont iconjiantou"></view>
+        <view>{{address.telNumber}}</view>
+        <view class="iconfont iconjiantou" bindtap="handleaddress"></view>
       </view>
     </view>
-    <view class="address-info">
-      收货地址：广东省广州市天河区珠吉路
-    </view>
+    <view class="address-info">收货地址：{{address.detailInfo}}</view>
+  </view>
+  <view wx:else class="add-address" bindtap="handleaddress"> 
+    <view>添加收货地址</view>
+    <view class="iconfont iconjiantou"></view>
   </view>
   <image class="img" mode="widthFix" src="../../images/cart_border@2x.png"></image>
   <view class="goods">
@@ -18,20 +20,20 @@
       <view class="iconfont icondianpu"></view>
       <view>并夕夕生活馆</view>
     </view>
-    <view class="goods-item">
+    <view class="goods-item" wx:for="{{goods}}" wx:key="{{index}}">
       <view class="item-left">
-        <icon type="success" color="red" size="16"></icon>
+        <icon bindtap="changeGoodsState" type="success" color="{{item.states ? 'red' : 'gray'}}" size="16" data-id="{{item.goods_id}}"></icon>
       </view>
       <view class="item-right">
-        <image class="item-img" src="https://api.zbztb.cn/pyg/pic_floor01_2@2x.png"></image>
+        <image class="item-img" src="{{item.goods_small_logo}}"></image>
         <view class="item-cnt">
-          <view class="item-cnt-title">人间不值得人间不值得人间不值得人间不值得人间不值得人间不值得人间不值得人间不值得人间不值得人间不值得</view>
+          <view class="item-cnt-title">{{item.goods_name}}</view>
           <view class="item-cnt-price">
-            <view class="price">￥279.00</view>
+            <view class="price">￥{{item.goods_price}}.00</view>
             <view class="num">
-              <view class="num-border">-</view>
-              <view class="number">3</view>
-              <view class="num-border">+</view>
+              <view bindtap="handleReduce" data-id="{{item.goods_id}}" class="num-border">-</view>
+              <view class="number">{{item.number}}</view>
+              <view class="num-border" bindtap="handleAdd" data-id="{{item.goods_id}}">+</view>
             </view>
           </view>
         </view>
@@ -40,11 +42,11 @@
   </view>
   <view class="account">
     <view class="account-left">
-      <icon type="success" color="red" size="16"></icon>
+      <icon bindtap="handleAllCheck" type="success" color="{{ allCheck ? 'red' : 'gray' }}" size="16"></icon>
       <view class="checkall">全选</view>
     </view>
     <view class="middle">合计：
-      <text class="price">￥14110.00</text>
+      <text class="price">￥{{allPrice}}.00</text>
       <view class="freight">包含运费</view>
     </view>
     <view class="givemoney">

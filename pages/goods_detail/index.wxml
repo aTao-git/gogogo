@@ -21,19 +21,22 @@
     </view>
   </view>
   <view class="zto">快递：免运费</view>
-  <rich-text class="richtext" nodes="{{message.goods_introduce}}">
-  </rich-text>
+  <view class="richtext">
+    <rich-text nodes="{{message.goods_introduce}}">
+    </rich-text>
+  </view>
+
   <view class="tabbar">
-      <button class="tabbtn" open-type="contact"></button>
-      <view class="tab-left">
-        <view class="iconfont iconwebicon302"></view>
-        <view>联系客服</view>  
-      </view>
-      <view class="tab-left">
-        <view class="iconfont icongouwuche"></view>
-        <view>购物车</view>
-      </view>
-      <navigator url="/pages/cart/index" open-type="switchTab" class="tab-right">加入购物车</navigator>
-      <view class="tab-right">立即购买</view>
+    <button class="tabbtn" open-type="contact"></button>
+    <view class="tab-left">
+      <view class="iconfont iconwebicon302"></view>
+      <view>联系客服</view>
+    </view>
+    <navigator url="/pages/cart/index" open-type="switchTab" class="tab-left">
+      <view class="iconfont icongouwuche"></view>
+      <view>购物车</view>
+    </navigator>
+    <view bindtap="handleAddGoods" class="tab-right">加入购物车</view>
+    <view class="tab-right">立即购买</view>
   </view>
 </view>

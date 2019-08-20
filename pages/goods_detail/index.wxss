@@ -90,3 +90,6 @@
   z-index: 100;
   opacity: 0;
 }
+.richtext {
+  padding-bottom: 100rpx;
+}

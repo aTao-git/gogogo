@@ -5,62 +5,143 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    address: {
+      userName: '',
+      telNumber: '',
+      detailInfo: '',
+    },
+    goods: {},
+    allCheck: true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
 
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  handleaddress() {
+    wx.chooseAddress({
+      success: res => {
+        this.setData({
+          address: {
+            userName: res.userName,
+            telNumber: res.telNumber,
+            detailInfo: res.provinceName + res.cityName + res.countyName + res.detailInfo
+          }
+        })
+        console.log(res)
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  onShow() {
+    const goods = wx.getStorageSync('goods')
+    let pass = true
+    Object.values(goods).forEach(v => {
+      if (!v.states) {
+        pass = false
+      }
+    })
+    this.setData({
+      goods,
+      allCheck: pass
+    })
+    this.handleAllPrice()
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  handleAllPrice() {
+    let allPrice = 0
+    Object.keys(this.data.goods).forEach(v => {
+      if (this.data.goods[v].states) {
+        allPrice += this.data.goods[v].goods_price * this.data.goods[v].number
+      }
+    })
+    this.setData({
+      allPrice
+    })
+    wx.setStorageSync('goods', this.data.goods)
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
+  changeGoodsState(e) {
+    const {
+      id
+    } = e.currentTarget.dataset
+    const {
+      goods
+    } = this.data
+    goods[id].states = !goods[id].states
+    let pass = true
+    Object.values(goods).forEach(v => {
+      if (!v.states) {
+        pass = false
+      }
+    })
+    this.setData({
+      goods,
+      allCheck: pass
+    })
+    this.handleAllPrice()
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
+  handleAdd(e) {
+    const {
+      id
+    } = e.currentTarget.dataset
+    const {
+      goods
+    } = this.data
+    goods[id].number = goods[id].number + 1
+    this.setData({
+      goods
+    })
+    this.handleAllPrice()
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
+  handleReduce(e) {
+    const {
+      id
+    } = e.currentTarget.dataset
+    const {
+      goods
+    } = this.data
+    if (goods[id].number === 1) {
+      wx.showModal({
+        title: '提示',
+        content: '确定要删除商品吗？',
+        success: res => {
+          if (res.confirm) {
+            delete goods[id]
+            this.setData({
+              goods
+            })
+            this.handleAllPrice()
+          }
+        }
+      })
+    } else {
+      goods[id].number = goods[id].number - 1
+      this.setData({
+        goods
+      })
+      this.handleAllPrice()
+    }
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  handleAllCheck () {
+    const { goods } = this.data
+    if (this.data.allCheck) {
+      Object.values(goods).forEach(v => {
+        v.states = false
+      })
+      this.setData({
+        goods,
+        allCheck: !this.data.allCheck
+      })
+      this.handleAllPrice()
+    } else {
+      Object.values(goods).forEach(v => {
+        v.states = true
+      })
+      this.setData({
+        goods,
+        allCheck: !this.data.allCheck
+      })
+      this.handleAllPrice()
+    }
   }
 })
