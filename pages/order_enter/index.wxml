@@ -1,0 +1,36 @@
+<!--pages/cart/index.wxml-->
+<view class="content">
+  <view class="container">
+    <view class="address">
+      <view class="address-title">收货人：{{address.userName}}</view>
+      <view class="address-mobile">
+        <view>{{address.telNumber}}</view>
+      </view>
+    </view>
+    <view class="address-info">收货地址：{{address.detailInfo}}</view>
+  </view>
+  <image class="img" mode="widthFix" src="../../images/cart_border@2x.png"></image>
+  <view class="goods">
+    <view class="goodstitle">
+      <view class="iconfont icondianpu"></view>
+      <view>并夕夕生活馆</view>
+    </view>
+    <view>
+      <view class="goods-item" wx:for="{{selectGoods}}" wx:key="{{index}}">
+        <view class="item-right">
+          <image class="item-img" src="{{item.goods_small_logo}}"></image>
+          <view class="item-cnt">
+            <view class="item-cnt-title">{{item.goods_name}}</view>
+            <view class="item-cnt-price">
+              <view class="price">￥{{item.goods_price}}.00</view>
+              <view class="num">
+                <view class="number">x {{item.number}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  <button class="paybtn" type="warn" bindtap="handlePay">支付 ￥{{allPrice}}.00 元</button>
+  </view>
+</view>

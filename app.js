@@ -4,7 +4,9 @@ App({
   onLaunch: function () {
     Request.defaults.baseURL = 'https://api.zbztb.cn/api/public/v1'
     Request.onError (res => {
-      console.log('请求被拦截了！')
+      if (res.data.meta.status === 401) {
+        console.log('无效token')
+      }
     })
   },
   globalData: {

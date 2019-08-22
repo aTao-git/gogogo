@@ -10,7 +10,7 @@
     </view>
     <view class="address-info">收货地址：{{address.detailInfo}}</view>
   </view>
-  <view wx:else class="add-address" bindtap="handleaddress"> 
+  <view wx:else class="add-address" bindtap="handleaddress">
     <view>添加收货地址</view>
     <view class="iconfont iconjiantou"></view>
   </view>
@@ -20,24 +20,29 @@
       <view class="iconfont icondianpu"></view>
       <view>并夕夕生活馆</view>
     </view>
-    <view class="goods-item" wx:for="{{goods}}" wx:key="{{index}}">
-      <view class="item-left">
-        <icon bindtap="changeGoodsState" type="success" color="{{item.states ? 'red' : 'gray'}}" size="16" data-id="{{item.goods_id}}"></icon>
-      </view>
-      <view class="item-right">
-        <image class="item-img" src="{{item.goods_small_logo}}"></image>
-        <view class="item-cnt">
-          <view class="item-cnt-title">{{item.goods_name}}</view>
-          <view class="item-cnt-price">
-            <view class="price">￥{{item.goods_price}}.00</view>
-            <view class="num">
-              <view bindtap="handleReduce" data-id="{{item.goods_id}}" class="num-border">-</view>
-              <view class="number">{{item.number}}</view>
-              <view class="num-border" bindtap="handleAdd" data-id="{{item.goods_id}}">+</view>
+    <view wx:if="{{isshow}}">
+      <view class="goods-item" wx:for="{{goods}}" wx:key="{{index}}">
+        <view class="item-left">
+          <icon bindtap="changeGoodsState" type="success" color="{{item.states ? 'red' : 'gray'}}" size="16" data-id="{{item.goods_id}}"></icon>
+        </view>
+        <view class="item-right">
+          <image class="item-img" src="{{item.goods_small_logo}}"></image>
+          <view class="item-cnt">
+            <view class="item-cnt-title">{{item.goods_name}}</view>
+            <view class="item-cnt-price">
+              <view class="price">￥{{item.goods_price}}.00</view>
+              <view class="num">
+                <view bindtap="handleReduce" data-id="{{item.goods_id}}" class="num-border">-</view>
+                <view class="number">{{item.number}}</view>
+                <view class="num-border" bindtap="handleAdd" data-id="{{item.goods_id}}">+</view>
+              </view>
             </view>
           </view>
         </view>
       </view>
+    </view>
+    <view wx:else>
+      你还没有添加商品
     </view>
   </view>
   <view class="account">
@@ -49,7 +54,7 @@
       <text class="price">￥{{allPrice}}.00</text>
       <view class="freight">包含运费</view>
     </view>
-    <view class="givemoney">
+    <view bindtap="handlepay" class="givemoney">
       结算
     </view>
   </view>

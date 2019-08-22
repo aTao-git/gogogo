@@ -10,6 +10,7 @@ Page({
       telNumber: '',
       detailInfo: '',
     },
+    isshow: true,
     goods: {},
     allCheck: true
   },
@@ -36,6 +37,15 @@ Page({
   },
   onShow() {
     const goods = wx.getStorageSync('goods')
+    if (Object.keys(goods).length === 0) {
+      this.setData({
+        isshow: false
+      })
+    } else {
+      this.setData({
+        isshow: true
+      })
+    }
     let pass = true
     Object.values(goods).forEach(v => {
       if (!v.states) {
@@ -143,5 +153,43 @@ Page({
       })
       this.handleAllPrice()
     }
+  },
+  handlepay () {
+    let pass = true
+    const { address } = this.data
+    Object.values(address).forEach(v => {
+      if (!v) pass = false
+    })
+    if (!pass) {
+      wx.showToast({
+        title: '请先填写收货地址！',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    }
+    const { goods } = this.data
+    if (Object.values(goods).length === 0) {
+      pass = false
+    }
+    if (!pass) {
+      wx.showToast({
+        title: '你还没有添加商品！',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    }
+    wx.setStorageSync('address', this.data.address)
+    let selectedGoods = []
+    Object.values(goods).forEach(v => {
+      if (v.states) {
+        selectedGoods.push(v)
+      }
+    })
+    wx.setStorageSync('selectedGoods', selectedGoods)
+    wx.navigateTo({
+      url: '/pages/order_enter/index',
+    })
   }
 })
