@@ -1,0 +1,7 @@
+<!--pages/auth/index.wxml-->
+<view class="container">
+  <view class="auth">
+    <image src="../../images/reg_logo@2x.png" mode="aspectFill"></image>
+    <button type="warn" class="btn" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">授权</button>
+  </view>
+</view>

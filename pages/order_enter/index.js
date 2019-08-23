@@ -46,13 +46,38 @@ Page({
     })
     Request({
       url: '/my/orders/create',
+      method: 'POST',
+      header: {
+        Authorization: wx.getStorageSync('token')
+      },
       data: {
         order_price: this.data.allPrice,
         consignee_addr: `${address.userName}${address.telNumber}${address.detailInfo}`,
         goods
       }
     }).then(res => {
-      console.log(res)
+      Request({
+        url: '/my/orders/req_unifiedorder',
+        method: 'POST',
+        header: {
+          Authorization: wx.getStorageSync('token')
+        },
+        data: {
+          order_number: res.data.message.order_number
+        }
+      }).then(res => {
+        wx.requestPayment({
+          ...res.data.message.pay,
+          success(res) {
+            console.log(res)
+           },
+          fail(err) { 
+            console.log(err)
+           }
+        })
+      }).catch(err => {
+        console.log(err)
+      })
     }).catch(err => {
       console.log(err)
     })

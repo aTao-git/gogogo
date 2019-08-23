@@ -41,7 +41,7 @@
         </view>
       </view>
     </view>
-    <view wx:else>
+    <view class="nogoods" wx:else>
       你还没有添加商品
     </view>
   </view>

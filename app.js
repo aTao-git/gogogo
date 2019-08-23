@@ -5,7 +5,9 @@ App({
     Request.defaults.baseURL = 'https://api.zbztb.cn/api/public/v1'
     Request.onError (res => {
       if (res.data.meta.status === 401) {
-        console.log('无效token')
+        wx.navigateTo({
+          url: '/pages/auth/index',
+        })
       }
     })
   },

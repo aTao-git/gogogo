@@ -1,0 +1,17 @@
+/* pages/auth/index.wxss */
+.auth {
+  padding-top: 300rpx;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+}
+.auth image {
+  display: block;
+  margin-bottom: 150rpx;
+  width: 250rpx;
+  height: 250rpx;
+}
+.auth .btn {
+  width: 80%;
+}

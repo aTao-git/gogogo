@@ -169,3 +169,7 @@ Page, .content {
   color: #fbe6e8;
   font-size: 15px;
 }
+.nogoods {
+  padding: 20rpx;
+  text-align: center;
+}
