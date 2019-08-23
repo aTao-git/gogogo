@@ -1,2 +1,8 @@
 <!--pages/person/index.wxml-->
-<text>pages/person/index.wxml</text>
+<view class="container">
+  <view class="avater">
+  <open-data type="userAvatarUrl"></open-data>
+</view>
+  <view class="nickname">
+  <open-data type="userNickName"></open-data></view>
+</view>
